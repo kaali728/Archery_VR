@@ -18,6 +18,8 @@ public class Shooting : MonoBehaviour
     // Get Oculus Controllers
     public OVRInput.Button ShootingButton;
 
+
+    public GameObject slicerGameObject;
     // Update is called once per frame
     void Update()
     {
@@ -49,6 +51,9 @@ public class Shooting : MonoBehaviour
         //Create the bullet
         GameObject bulletGameobject = Instantiate(bulletPrefab, nozzleTransform.position, Quaternion.Euler(0, 0, 0));
         bulletGameobject.transform.forward = nozzleTransform.forward;
+
+        //collision between plane and bullet
+        Physics.IgnoreCollision(bulletGameobject.GetComponent<Collider>(), slicerGameObject.GetComponent<Collider>());
 
     }
 

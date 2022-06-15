@@ -20,6 +20,8 @@ public class CubeExplode : MonoBehaviour
         shatteredObject.SetActive(true);
         var shatterAnimation = shatteredObject.GetComponent<Animation>().Play();
 
+        //score hinzufügen
+        ScoreManager.instance.AddScore(ScorePoints.GUNCUBE_SCOREPOINT);
 
         Destroy(shatteredObject,1);
     }

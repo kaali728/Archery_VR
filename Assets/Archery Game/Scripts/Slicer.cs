@@ -23,7 +23,15 @@ public class Slicer : MonoBehaviour
                 GameObject upperHullGameobject = slicedObject.CreateUpperHull(objectToBeSliced.gameObject, MaterialAfterSlice);
                 GameObject lowerHullGameobject = slicedObject.CreateLowerHull(objectToBeSliced.gameObject, MaterialAfterSlice);
 
-             
+
+                //Sound spielen
+                AudioManager.instance.sliceSound.gameObject.transform.position = objectToBeSliced.transform.position;
+                AudioManager.instance.sliceSound.Play();
+
+                    
+                //score hinzufügen
+                ScoreManager.instance.AddScore(ScorePoints.SWORDCUBE_SCOREPOINT);
+
                 upperHullGameobject.transform.position = objectToBeSliced.transform.position;
                 lowerHullGameobject.transform.position = objectToBeSliced.transform.position;
                
